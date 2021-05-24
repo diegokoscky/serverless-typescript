@@ -1,0 +1,46 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: rgba(255,255,255,.85);
+}
+
+.box {
+  padding: 2rem;
+  background: #171719;
+}
+
+.box h2 {
+  text-align: center;
+}
+
+.box input {
+  background: #000000 !important;
+  border: 1px solid #313131;
+  color: rgba(255,255,255,.85);
+}
+
+.box .btn {
+  text-transform: uppercase;
+  font-weight: 600;
+}
