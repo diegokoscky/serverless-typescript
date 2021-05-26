@@ -1,8 +1,13 @@
 import { GetServerSideProps } from "next";
-import axios from "axios";
 import { IoListCircleOutline } from "react-icons/io5";
+import axios from "axios";
+import { User } from "../interfaces/newsletter";
 
-export default function Registros() {
+type Props = {
+    items: User[];
+};
+
+export default function Registros({ items }: Props) {
     return (
         <main className="main">
             <div className="box">
@@ -10,17 +15,24 @@ export default function Registros() {
                     <IoListCircleOutline /> Registros
                 </h2>
                 <ul>
-                    <li></li>
+                    {items.map((item) => (
+                        <li key={item._id}>
+                            {item.email} | {item.subscribedAt}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </main>
     );
 }
 
-/*export const getServerSideProps: GetServerSideProps = async () => {
-    const response = await axios.get("/api/subscribeListAlt");
-
+export const getServerSideProps: GetServerSideProps = async () => {
+    const response = await axios.get("http://localhost:3000/api/subscribeList");
     const items: User[] = await response.data;
 
-    return { props: { items } };
-};*/
+    return {
+        props: {
+            items,
+        },
+    };
+};
