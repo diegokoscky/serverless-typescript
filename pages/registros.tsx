@@ -27,7 +27,9 @@ export default function Registros({ items }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const response = await axios.get("http://localhost:3000/api/subscribeList");
+    const response = await axios.get(
+        "https://serverless-typescript.vercel.app/api/subscribeList"
+    );
     const items: User[] = await response.data;
 
     return {
